@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tractor Details</title>
+    <link rel="stylesheet" href="productinfo.css">
+</head>
+<body>
+    <div class="product-details">
+        <img id="product-image" src="https://via.placeholder.com/250" alt="Tractor">
+        <h1 id="product-name">Tractor</h1>
+        <p id="product-description">Efficient and powerful tractor for large-scale farming.</p>
+        <p id="product-price">Price: $15,000</p>
+        <button id="add-to-cart">Add to Cart</button>
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const addToCartBtn = document.getElementById('add-to-cart');
+
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+            const product = {
+                name: "Tractor",
+                price: "$15,000",
+                image: "https://via.placeholder.com/250"
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert("Tractor added to cart!");
+        });
+    }
+});
+
+    </script>
+</body>
+</html>
